@@ -1,5 +1,5 @@
 <template>
-  
+  <h1>Welcome to sparks bank</h1>
 </template>
 
 
@@ -14,5 +14,6 @@ export default {
 </script>
 
 <style scoped>
+
 
 </style>
