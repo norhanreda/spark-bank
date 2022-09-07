@@ -5,21 +5,21 @@
       <div class="links">
         
         <ul>
-          <li> <a href="#home">Home</a></li>
-          <li> <a href="#customers">Customers</a></li>
-          <li> <a href="#about">About</a></li>
+          <li> <router-link to="/home">Home</router-link></li>
+          <li><router-link to="/about">About</router-link> </li>
+          <li> <router-link to="/customers">customers</router-link></li>
         </ul>
       
       </div>
 
  </div>
   
-    
+    <router-view></router-view>
   
 </template>
 
 <script>
-//import HomePage from './components/HomePage.vue';
+
 
 export default {
 
@@ -51,7 +51,7 @@ export default {
   {
 
    
-     
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -59,7 +59,7 @@ export default {
     margin: auto;
 
    position: absolute;
-   left: 80%;
+   left: 75%;
    top: 0%;
 
   }
@@ -78,6 +78,16 @@ export default {
     text-transform: uppercase;
     color: black;
   }
+  /*.links ul li ::after
+  {
+    content: '';
+    width: 100%;
+    height: 3px;
+    background:brown;
+    position: absolute;
+    left: 0;
+    bottom: 0px;
+  }*/
  
 
 </style>
