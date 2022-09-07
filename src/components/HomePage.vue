@@ -4,7 +4,7 @@
   <div class="para" >
   <p>This system is designed to show the transactions between customers  </p>
   <p>and the history of each customer stored in data base. </p>
-  <router-link to="customers" id="go">Go to customers </router-link>
+  <button @click="go" >Go to customers </button>
   </div>
   </div>
   <p align="right"><img src="./images/20944139.jpg" width="600" height="400" alt="home" > </p>
@@ -18,6 +18,15 @@ export default {
   
   components: {
     
+  },
+  methods:
+  {
+  go()
+  {
+   
+      this.$router.push('/customers');
+     
+  },
   },
 }
 </script>
@@ -42,12 +51,27 @@ export default {
   {
     position: relative;
     top:10% ;
+    font-family: sans-serif;
   }
   #go
   {
     text-decoration: none;
     color:black;
-    
+    border-color: palevioletred;
+    border-radius: 0.5rem;
+    border-style:solid ;
+    padding:0.5rem;
+    margin: 10px 0;
+  }
+
+  button
+  {
+
+    margin:1rem 5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    background-color: pink;
+    border-radius: 0.5rem;
   }
 
 
