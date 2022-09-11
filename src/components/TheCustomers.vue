@@ -1,39 +1,34 @@
 <template>
- 
+  <h1 >customers</h1>
   <button @click="goto">add customer </button>
-    <h1>customers</h1>
+   
 
     <p v-if="isLoading" style="color:pink">Loading data please wait.......... </p>
     <p v-else-if="error && !isLoading" style="color:red"> {{error}} </p>
     <p v-else-if="!isLoading && (!results || results.length===0)">There is no Data</p>
-    <ul  v-else-if="!isLoading && results &&results.length>0">
-      <tr>
-        <th>Company</th>
-        <th>Contact</th>
-        <th>Country</th>
-      </tr>
-     <li
-         v-for="result in results"
-          :key="result.id"
-     >
-  
+     <table v-else-if="!isLoading && results &&results.length>0" class="table">
     
-
-    <table>
-      
-      <tr>
+      <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Current Balance</th>
+        <th>View custumer</th>
+      </thead>
+      <tbody>
+      <tr  v-for="result in results"
+      :key="result.id">
         <td>{{result.name}}</td>
         <td>{{result.email}} </td>
         <td> {{result.balance}}</td>
-        <!-- <td> <router-link> View custumer</router-link></td> -->
+        <td> <router-link to="/home"> {{result.name}}</router-link></td>
       </tr>
-
+    </tbody>
     </table>
     
-    </li> 
+    
      
      
-</ul>
+
 
   </template>
   
@@ -99,7 +94,53 @@
   </script>
   
   <style scoped>
-    
+    h1
+    {
+     position: absolute;
+     left: 45%;
+     top:12%;
+     margin:10px 0;
+     padding: 10px;
+    }
+    body{
+      margin: 0;
+      padding: 20px;
+      font-family: sans-serif;
+    }
+    *
+    {
+      box-sizing: border-box;
+    }
+    .table
+    {
+     width: 100%;
+     border-collapse: collapse;
+    }
+    .table td,.table th {
+      padding: 12px 15px;
+      border:1px solid grey ;
+      text-align: center;
+    }
+
+    .table th
+    {
+     background-color: pink;
+     
+
+    }
+
+    .table tbody tr:nth-child(even)
+    {
+      background-color: #f5f5f5;
+    }
+    /*responsive*/
+
+    /*@media(max-width: 500px)
+    {
+       .table thead{
+       display:none;
+       }
+    }*/
   
   </style>
   
