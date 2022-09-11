@@ -4,7 +4,7 @@
   <div class="para" >
   <p>This system is designed to show the transactions between customers  </p>
   <p>and the history of each customer stored in data base. </p>
-  <button @click="go" >Go to customers </button>
+  <button @click="go" >Go to view all customers </button>
   </div>
   </div>
   <p align="right"><img src="./images/20944139.jpg" width="600" height="400" alt="home" > </p>

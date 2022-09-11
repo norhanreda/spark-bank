@@ -3,11 +3,16 @@ import { createRouter,createWebHistory } from 'vue-router'
 import HomePage from './components/HomePage.vue';
 import AboutUs from './components/AboutUs.vue';
 import TheCustomers from './components/TheCustomers'
+import createCustomer from './components/createCustomer'
 import App from './App.vue'
 const router=createRouter(
    {
     history:createWebHistory(),
     routes:[
+     {
+          path:'/', component:HomePage
+         
+     },
         {
              path:'/home', component:HomePage
             
@@ -19,7 +24,15 @@ const router=createRouter(
        {
         path:'/customers', component:TheCustomers
        
-   },
+       },
+       {
+          path:'/createCustomers', component:createCustomer
+         
+         },
+         {
+          // to catch all routs 
+          path:'/:notFound(.*)',  component:HomePage,
+      },
     ]
 }
 
