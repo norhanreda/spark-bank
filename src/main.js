@@ -4,6 +4,8 @@ import HomePage from './components/HomePage.vue';
 import AboutUs from './components/AboutUs.vue';
 import TheCustomers from './components/TheCustomers'
 import createCustomer from './components/createCustomer'
+import TheProfile from './components/TheProfile'
+import TheTransfer from './components/TheTransfer'
 import App from './App.vue'
 const router=createRouter(
    {
@@ -27,6 +29,16 @@ const router=createRouter(
        },
        {
           path:'/createCustomers', component:createCustomer
+         
+         },
+         {
+          name:'profile',path:'/profile:id', component:TheProfile ,
+          
+         
+         },
+         {
+          name:'transfer',path:'/transfer:id', component:TheTransfer ,
+          
          
          },
          {

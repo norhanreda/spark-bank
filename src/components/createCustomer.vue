@@ -51,7 +51,8 @@ export default {
       body: JSON.stringify({
           name:this.name,
           emial:this.email,
-          balance:this.balance
+          balance:this.balance,
+          history:[{from:'',to:'',value:'',Date:''}]
       }),
 
       }

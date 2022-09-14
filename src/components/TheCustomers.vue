@@ -20,9 +20,15 @@
         <td>{{result.name}}</td>
         <td>{{result.email}} </td>
         <td> {{result.balance}}</td>
-        <td> <router-link to="/home"> {{result.name}}</router-link></td>
+        <td> 
+          <router-link :to="{ name: 'profile', params: {id:result.id} }">view</router-link>
+          
+          
+        </td>
       </tr>
+      
     </tbody>
+    
     </table>
     
     
@@ -35,6 +41,7 @@
   
   
   <script>
+
   export default {
     data()
     {
@@ -46,13 +53,17 @@
     },
     
     components: {
-      
-    },
+    
+},
     methods:
     {
       goto()
       {
         this.$router.push('/createCustomers');
+      },
+      shareData(ID)
+      {
+        this.$router.push({name:"profile" ,params:{id:ID}});
       },
       loadData()
     {
@@ -89,7 +100,9 @@
     mounted()
  {
   this.loadData();
- }
+ },
+
+
   }
   </script>
   
