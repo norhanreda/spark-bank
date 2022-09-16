@@ -37,7 +37,7 @@ const router=createRouter(
          
          },
          {
-          name:'transfer',path:'/transfer:id', component:TheTransfer ,
+          name:'transfer',path:'/transfer', component:TheTransfer ,
           
          
          },

@@ -18,7 +18,7 @@
       :key="result.id">
         <td>{{result.from}}</td>
         <td>{{result.to}} </td>
-        <td> {{result.value}}</td>
+        <td> {{result.value}} $</td>
         <td> {{result.date}}</td>
   
       </tr>
@@ -70,7 +70,7 @@
           const res=[];
           for(const id in data)
           {
-              res.push({id:id,from:data[id].from,to:data[id].to,value:data[id].value,date:data[id].data});
+              res.push({id:id,from:data[id].from,to:data[id].to,value:data[id].value,date:data[id].date});
           }
           this.results=res;
       },

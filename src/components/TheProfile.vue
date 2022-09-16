@@ -20,17 +20,17 @@
     <div class="control">
     <label >Current Balance: </label>
     <li >
-      {{result.balance}}
+      {{result.balance}} $
     </li>
   </div>
     </div>
     
     </ul>
-    <div>
-      <button @click="transfer(result.id)">transfer</button>
-    </div>
-    </div>
     
+    </div>
+    <div>
+      <button @click="transfer()">transfer</button>
+    </div>
   </template>
   
   
@@ -63,9 +63,9 @@
     },
     methods:
     {
-      transfer(ID)
+      transfer()
       {
-        this.$router.push({name:"transfer" ,params:{id:ID}});
+        this.$router.push('/transfer');
       
       },
      loadProfile()

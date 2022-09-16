@@ -17,7 +17,7 @@
       <div class="form">
         <label> to:</label>
         <br>
-        <select name="to" id="to" v-model.trim="to">
+        <select name="to" id="to"  v-model.trim="to">
           <option 
           v-for="result in results"
            :key="result.id"
@@ -35,21 +35,22 @@
       </div>
 
       <div class="form">
-        <label> Date:</label>
+        <label> date:</label>
         <br>
-        <input type="Date" v-model.trim="Date" />
+        <input type="Date" v-model.trim="date"   dateformat="y M d" />
       </div>
-  
+   
+      
       <button type="submit">transfer</button>
     </form>
     {{from}}
     {{to}}
     {{results[(results.findIndex((item) => item.id === to))]?.balance}}
-
+    {{date}}
   </template>
   
   <script>
-  // import axios from "axios";
+ 
  
   export default {
     data() {
@@ -58,7 +59,7 @@
         from: "",
         to: "",
         value: "",
-        Date:'',
+        date:'',
         invalidInput: false,
         error:null,
         isLoading:false,
@@ -102,6 +103,7 @@
     },
     async updatData(){
       //delete old data
+      
       fetch('https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/bank.json' ,
       {
       method:'DELETE',
@@ -155,7 +157,7 @@
           }
           if(this.results[i].id === this.to)
           {
-            this.results[i].balance=this.results[i].balance-this.value;
+            this.results[i].balance=this.results[i].balance+this.value;
           }
 
 
@@ -212,7 +214,7 @@
           from:this.results[(this.results.findIndex((item) => item.id === this.from))]?.name,
           to:this.results[(this.results.findIndex((item) => item.id === this.to))]?.name,
           value:this.value,
-          date:this.Date,
+          date:this.date,
     
           
       }),
