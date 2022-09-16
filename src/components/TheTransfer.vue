@@ -101,47 +101,20 @@
       ;
     },
     async updatData(){
-            // try {
-              
-            //      await axios.patch(`https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/bank.json?id=balance`,
-            //      {
-            //      balance:this.results[(this.results.findIndex((item) => item.id === this.to))]?.balance-this.value,
-            //     //  history:this.results[(this.results.findIndex((item) => item.id === this.to))]?.history.push(this.history),
-
-            //      });
-            //      this.to="";
-            //      this.from="";
-            //      this.value="";
-            //      this.Date="";
-            //      this.history={};
-            //     //  this.$router.push('/');
-                
-            // } catch (error) {
-            //     console.log(error);
-            // }
-
-            let headers = new Headers();
-            
-              headers.append('Content-Type', 'application/json');
-              headers.append('Origin','*');
-              headers.append("Access-Control-Allow-Origin: *");
-headers.append('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-headers.append("Access-Control-Allow-Headers: Content-Type, Authorization");
-            
-            fetch('https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/bank/-NBwMPsq5nw8F7jYO2e4',{mode:'cors'},
+      //delete old data
+      fetch('https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/bank.json' ,
       {
-      method:'PATCH',
-       headers:headers,
-      //  {
-      //  'Content-Type':'application/json',
-      //  'Access-Control-Allow-Credentials':true,
-      // 'Access-Control-Allow-Origin':'*',
-      // },
+      method:'DELETE',
+       headers:
+       {
+       'Content-Type':'application/json'
+     
+      },
       
      
       
       body: JSON.stringify({
-        balance:this.results[(this.results.findIndex((item) => item.id === this.to))]?.balance-this.value,
+    
       }),
 
       }
@@ -165,9 +138,114 @@ headers.append("Access-Control-Allow-Headers: Content-Type, Authorization");
         console.log(Error);
         this.error=Error.message;
       });
-     this.name='';
-     this.email='';
-     this.balance='';
+   
+
+
+      ////////////////////////////////////////////////////////
+       //update data
+
+      // this.results[(this.results.findIndex((item) => item.id === this.from))]?.balance-this.value;
+      // this.results[(this.results.findIndex((item) => item.id === this.to))]?.balance-this.value;
+
+      for(var i = 0; i < this.results.length; i++)
+      {
+        if(this.results[i].id === this.from)
+          {
+            this.results[i].balance=this.results[i].balance-this.value;
+          }
+          if(this.results[i].id === this.to)
+          {
+            this.results[i].balance=this.results[i].balance-this.value;
+          }
+
+
+        fetch('https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/bank.json',
+      {
+      method:'POST',
+      headers:{
+       'Content-Type':'application/json'
+      },
+      body: JSON.stringify({
+          name:this.results[i].name,
+          emial:this.results[i].email,
+        
+          balance:this.results[i].balance,
+    
+          
+      }),
+
+      }
+      
+      ).then (response =>
+      {
+         
+        if(response.ok)
+        {
+              console.log('done......');
+        }
+        else
+        {
+          throw new Error('Could not save data! ');
+        }
+      }
+        
+
+      ).catch((Error)=>
+      {
+        console.log(Error);
+        this.error=Error.message;
+      });
+
+
+    
+      }
+      
+      //insert transction
+
+      fetch('https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/transaction.json',
+      {
+      method:'POST',
+      headers:{
+       'Content-Type':'application/json'
+      },
+      body: JSON.stringify({
+          from:this.results[(this.results.findIndex((item) => item.id === this.from))]?.name,
+          to:this.results[(this.results.findIndex((item) => item.id === this.to))]?.name,
+          value:this.value,
+          date:this.Date,
+    
+          
+      }),
+
+      }
+      
+      ).then (response =>
+      {
+         
+        if(response.ok)
+        {
+              console.log('done......');
+        }
+        else
+        {
+          throw new Error('Could not save data! ');
+        }
+      }
+        
+
+      ).catch((Error)=>
+      {
+        console.log(Error);
+        this.error=Error.message;
+      });
+
+       // for v-model
+      this.from="";
+      this.to="";
+      this.value="";
+      
+      
+   
 
         } ,
 

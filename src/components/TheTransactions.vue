@@ -1,6 +1,6 @@
 <template>
-  <h1 >customers</h1>
-  <button @click="goto">add customer </button>
+  <h1 >Transactions</h1>
+
 
     <p v-if="isLoading" style="color:pink">Loading data please wait.......... </p>
     <p v-else-if="error && !isLoading" style="color:red"> {{error}} </p>
@@ -8,22 +8,19 @@
      <table v-else-if="!isLoading && results &&results.length>0" class="table">
     
       <thead>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Current Balance</th>
-        <th>View custumer</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Value</th>
+        <th>Date</th>
       </thead>
       <tbody>
       <tr  v-for="result in results"
       :key="result.id">
-        <td>{{result.name}}</td>
-        <td>{{result.email}} </td>
-        <td> {{result.balance}}</td>
-        <td> 
-          <router-link :to="{ name: 'profile', params: {id:result.id} }">view</router-link>
-          
-          
-        </td>
+        <td>{{result.from}}</td>
+        <td>{{result.to}} </td>
+        <td> {{result.value}}</td>
+        <td> {{result.date}}</td>
+  
       </tr>
       
     </tbody>
@@ -56,19 +53,11 @@
 },
     methods:
     {
-      goto()
-      {
-        this.$router.push('/createCustomers');
-      },
-      shareData(ID)
-      {
-        this.$router.push({name:"profile" ,params:{id:ID}});
-      },
+  
       loadData()
     {
-      
       this.isLoading=true;
-      fetch('https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/bank.json')
+      fetch('https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/transaction.json')
       .then((response)=>{
             if(response.ok)
              {
@@ -81,7 +70,7 @@
           const res=[];
           for(const id in data)
           {
-              res.push({id:id,name:data[id].name,email:data[id].emial,balance:data[id].balance});
+              res.push({id:id,from:data[id].from,to:data[id].to,value:data[id].value,date:data[id].data});
           }
           this.results=res;
       },

@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import { createRouter,createWebHistory } from 'vue-router'
 import HomePage from './components/HomePage.vue';
-import AboutUs from './components/AboutUs.vue';
+import TheTransactions from './components/TheTransactions.vue';
 import TheCustomers from './components/TheCustomers'
 import createCustomer from './components/createCustomer'
 import TheProfile from './components/TheProfile'
@@ -20,7 +20,7 @@ const router=createRouter(
             
         },
         {
-            path:'/about', component:AboutUs
+            path:'/transactions', component:TheTransactions
            
        },
        {

@@ -7,6 +7,6 @@
 module.exports = {
   // options...
   devServer: {
-      proxy: 'https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/bank'
+      proxy: 'http://localhost:8888'
     }
 }

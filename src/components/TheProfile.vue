@@ -1,10 +1,9 @@
 <template>
 <p align="center" style="font-size:20; padding:10px;"> <b>user profile </b></p>
-    <ul 
-    v-for="result in results"
-    :key="result.id"
+<div v-for="result in results"
+:key="result.id">
+    <ul >
     
-    >
     <div  v-if="this.id===result.id">
       <div class="control">
     <label >Name: </label>
@@ -25,11 +24,12 @@
     </li>
   </div>
     </div>
-    <div>
-    <button @click="transfer(result.id)">transfer</button>
-  </div>
+    
     </ul>
-   
+    <div>
+      <button @click="transfer(result.id)">transfer</button>
+    </div>
+    </div>
     
   </template>
   
@@ -48,6 +48,7 @@
             isLoading:false,
             results:[],
             error:null,
+          
             
         };
     },

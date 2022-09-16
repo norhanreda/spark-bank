@@ -23,6 +23,7 @@
 </template>
 
 <script>
+  //  import axios from "axios";
 export default {
   data() {
     return {
@@ -42,6 +43,29 @@ export default {
         return;
       }
       this.invalidInput = false;
+
+
+         
+                //   axios.post(`http://localhost:8888/spark/api.php?action=addusers`,
+                //  {
+                // name:this.name,
+                // email:this.email,
+                // balance:this.balance,
+                //  }).then(function(response)
+                //  {
+                //      console.log(response)
+                //  }). catch (function(error)
+                //  {
+                // console.log(error);
+                //         }
+                //  );
+                      
+                //  this.name="";
+                //  this.email="";
+                //  this.balance="";
+                
+                
+            
       fetch('https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/bank.json',
       {
       method:'POST',
