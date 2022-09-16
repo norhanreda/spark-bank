@@ -7,7 +7,7 @@
   <button @click="go" >Go to view all customers </button>
   </div>
   </div>
-  <p align="right"><img src="./images/20944139.jpg" width="600" height="400" alt="home" > </p>
+ <p align="right"> <img   src="./images/20944139.jpg" width="600" height="400" alt="home" > </p>
   
 </template>
 
@@ -74,5 +74,6 @@ export default {
     border-radius: 0.5rem;
   }
 
+ 
 
 </style>

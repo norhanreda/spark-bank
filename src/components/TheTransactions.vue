@@ -1,16 +1,17 @@
 <template>
-  <h1 >Transactions</h1>
+ <h1 id="logo">Transactions</h1> 
 
 
     <p v-if="isLoading" style="color:pink">Loading data please wait.......... </p>
     <p v-else-if="error && !isLoading" style="color:red"> {{error}} </p>
     <p v-else-if="!isLoading && (!results || results.length===0)">There is no Data</p>
-     <table v-else-if="!isLoading && results &&results.length>0" class="table">
+
+     <table v-else-if="!isLoading && results &&results.length>0"  class="table"> 
     
       <thead>
-        <th>From</th>
-        <th>To</th>
-        <th>Value</th>
+        <th>#From</th>
+        <th>#To</th>
+        <th>Value $</th>
         <th>Date</th>
       </thead>
       <tbody>
@@ -120,6 +121,8 @@
     {
      width: 100%;
      border-collapse: collapse;
+     position:absolute;
+     top:30%;
     }
     .table td,.table th {
       padding: 12px 15px;
@@ -137,6 +140,12 @@
     .table tbody tr:nth-child(even)
     {
       background-color: #f5f5f5;
+    }
+
+    #logo
+    {
+      margin:10px;
+      padding: 10px;
     }
     /*responsive*/
 

@@ -1,5 +1,9 @@
 <template>
 <p align="center" style="font-size:20; padding:10px;"> <b>user profile </b></p>
+<div id="trans">
+  <button @click="transfer()">transfer</button>
+</div>
+
 <div v-for="result in results"
 :key="result.id">
     <ul >
@@ -23,14 +27,42 @@
       {{result.balance}} $
     </li>
   </div>
+  <p v-if="load" style="color:pink">Loading data please wait.......... </p>
+  <p v-else-if="e && !load" style="color:red"> {{e}} </p>
+  <p v-else-if="!load && (!history || history.length===0)">There is no Data</p>
+
+   <table v-else-if="!load && history &&history.length>0"  class="table"> 
+  
+    <thead>
+      <th>#From</th>
+      <th>#To</th>
+      <th>Value $</th>
+      <th>Date</th>
+    </thead>
+    <tbody>
+    <tr  v-for="his in history"
+    :key="his.id">
+    
+      <td v-if="his.from=== result.name">{{his.from}}</td>
+      <td v-if="his.from=== result.name">{{his.to}} </td>
+      <td v-if="his.from=== result.name"> {{his.value}} $</td>
+      <td v-if="his.from=== result.name"> {{his.date}}</td>
+      
+
+    </tr>
+    
+  </tbody>
+  
+  </table>
     </div>
     
     </ul>
+   
     
     </div>
-    <div>
-      <button @click="transfer()">transfer</button>
-    </div>
+    
+
+    
   </template>
   
   
@@ -48,6 +80,10 @@
             isLoading:false,
             results:[],
             error:null,
+            history:[],
+            load:false,
+            e:null,
+            
           
             
         };
@@ -98,12 +134,44 @@
       )
       ;
 
+     },
+     getHistory()
+     {
+      this.load=true;
+      fetch('https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/transaction.json')
+      .then((response)=>{
+            if(response.ok)
+             {
+                return response.json();
+             }
+
+      }).then((data)=>{
+        this.load=false;
+           console.log(data);
+          const res=[];
+          for(const id in data)
+          {
+              res.push({id:id,from:data[id].from,to:data[id].to,value:data[id].value,date:data[id].date});
+          }
+          this.history=res;
+      },
+     
+      ).catch((error)=>
+           {
+            console.log(error);
+            this.isLoading=false;
+            this.e="faild to fetch data please try again later ........";
+           }
+      )
+      ;
+
      }
     },
     
       mounted()
  {
   this.loadProfile();
+  this.getHistory();
  },
     
   }
@@ -122,6 +190,48 @@
   li
   {
     list-style: none;
+  }
+
+  body{
+    margin: 0;
+    padding: 20px;
+    font-family: sans-serif;
+  }
+  *
+  {
+    box-sizing: border-box;
+  }
+  .table
+  {
+   width: 100%;
+   border-collapse: collapse;
+   position: absolute;
+   top:60%;
+
+  }
+  .table td,.table th {
+    padding: 12px 15px;
+    border:1px solid grey ;
+    text-align: center;
+  }
+
+  .table th
+  {
+   background-color: pink;
+   
+
+  }
+
+  .table tbody tr:nth-child(even)
+  {
+    background-color: #f5f5f5;
+  }
+
+  #trans
+  {
+    position: absolute;
+    left:48%;
+    top:35%;
   }
   
   </style>

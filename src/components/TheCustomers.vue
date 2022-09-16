@@ -18,7 +18,7 @@
       :key="result.id">
         <td>{{result.name}}</td>
         <td>{{result.email}} </td>
-        <td> {{result.balance}}</td>
+        <td> {{result.balance}} $</td>
         <td> 
           <router-link :to="{ name: 'profile', params: {id:result.id} }">view</router-link>
           
@@ -131,6 +131,8 @@
     {
      width: 100%;
      border-collapse: collapse;
+     position:absolute;
+     top:30%;
     }
     .table td,.table th {
       padding: 12px 15px;
