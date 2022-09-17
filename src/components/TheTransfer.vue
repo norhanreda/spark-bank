@@ -273,12 +273,31 @@
   }
   
   
-  button {
-    margin: 0.5rem;
-    padding: 0.5rem;
-    width: 5rem;
-   /* position: absolute;
-    left: 45%;*/
+  button
+  {
+    cursor: pointer;
+    background-color: rgb(194, 40, 173);
+    border-color: black;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 5px;
+    margin:1px auto;
+    position:absolute;
+    left:35%;
+    top:250px;
+  }
+  button:hover
+  {
+    cursor: pointer;
+    background-color: pink;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 5px;
+    margin:1px auto;
+    position:absolute;
+    left:35%;
+    top:250px;
   }
   </style>
   
