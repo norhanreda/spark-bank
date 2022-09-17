@@ -20,7 +20,7 @@
         <td>{{result.email}} </td>
         <td> {{result.balance}} $</td>
         <td> 
-          <router-link :to="{ name: 'profile', params: {id:result.id} }">view</router-link>
+          <router-link :to="{ name: 'profile', params: {id:result.id} }">view profile</router-link>
           
           
         </td>
@@ -132,7 +132,7 @@
      width: 100%;
      border-collapse: collapse;
      position:absolute;
-     top:30%;
+     top:40%;
     }
     .table td,.table th {
       padding: 12px 15px;
@@ -142,14 +142,41 @@
 
     .table th
     {
-     background-color: pink;
      
-
+     /*background-color: pink;/*-moz-animation: ;*/
+     
+     background-color: rgb(194, 40, 173);
     }
 
     .table tbody tr:nth-child(even)
     {
       background-color: #f5f5f5;
+    }
+    button
+    {
+      cursor: pointer;
+      background-color: rgb(194, 40, 173);
+      border-color: black;
+      border-width: 1px;
+      border-radius: 5px;
+      padding: 5px;
+      margin:1px auto;
+      position:absolute;
+      left:47%;
+      top:30%;
+    }
+    button:hover
+    {
+      cursor: pointer;
+      background-color: pink;
+      border-color: black;
+      border-width: 1px;
+      border-radius: 5px;
+      padding: 5px;
+      margin:1px auto;
+      position:absolute;
+      left:47%;
+      top:30%;
     }
     /*responsive*/
 

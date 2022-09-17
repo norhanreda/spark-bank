@@ -7,6 +7,7 @@
         <ul>
           <li> <router-link to="/home">Home</router-link></li>
           <li> <router-link to="/customers">customers</router-link></li>
+          <li><router-link to="/transfer">Transfer</router-link> </li>
           <li><router-link to="/transactions">Transactions</router-link> </li>
         </ul>
       
@@ -36,7 +37,7 @@ export default {
   }
   .container
   {
-    background-color: pink;
+    background: linear-gradient(45deg,pink,rgb(139, 4, 249));
 
  
     margin:2rem auto;
@@ -59,7 +60,7 @@ export default {
     margin: auto;
 
    position: absolute;
-   left: 75%;
+   left: 65%;
    top: 0%;
 
   }

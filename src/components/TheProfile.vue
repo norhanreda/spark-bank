@@ -27,6 +27,7 @@
       {{result.balance}} $
     </li>
   </div>
+  <h1 id="his"> history</h1>
   <p v-if="load" style="color:pink">Loading data please wait.......... </p>
   <p v-else-if="e && !load" style="color:red"> {{e}} </p>
   <p v-else-if="!load && (!history || history.length===0)">There is no Data</p>
@@ -43,10 +44,10 @@
     <tr  v-for="his in history"
     :key="his.id">
     
-      <td v-if="his.from=== result.name">{{his.from}}</td>
-      <td v-if="his.from=== result.name">{{his.to}} </td>
-      <td v-if="his.from=== result.name"> {{his.value}} $</td>
-      <td v-if="his.from=== result.name"> {{his.date}}</td>
+      <td v-if="his.from=== result.name || his.to=== result.name  ">{{his.from}}</td>
+      <td v-if="his.from=== result.name || his.to=== result.name">{{his.to}} </td>
+      <td v-if="his.from=== result.name || his.to=== result.name"> {{his.value}} $</td>
+      <td v-if="his.from=== result.name || his.to=== result.name"> {{his.date}}</td>
       
 
     </tr>
@@ -192,14 +193,20 @@
     list-style: none;
   }
 
-  body{
-    margin: 0;
-    padding: 20px;
-    font-family: sans-serif;
+   body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg,pink,rgb(139, 4, 249));
+    
   }
   *
   {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+    
   }
   .table
   {
@@ -232,6 +239,12 @@
     position: absolute;
     left:48%;
     top:35%;
+  }
+  #his
+  {
+    position: absolute;
+    top:53%;
+    left:45%;
   }
   
   </style>

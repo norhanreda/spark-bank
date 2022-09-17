@@ -132,7 +132,8 @@
 
     .table th
     {
-     background-color: pink;
+     /*background-color: pink;*/
+     background-color: rgb(194, 40, 173);
      
 
     }
@@ -140,6 +141,7 @@
     .table tbody tr:nth-child(even)
     {
       background-color: #f5f5f5;
+     
     }
 
     #logo
