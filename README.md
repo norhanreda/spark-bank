@@ -59,11 +59,18 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
 <!--<li > <b>Add Resource </b> </li>
-
-
-
-
 <li> <b>View Resources</b> </li>-->
+
+![image](https://user-images.githubusercontent.com/88630231/190917920-40711fb2-5aa9-4e38-9489-63387fea260e.png)
+
+![image](https://user-images.githubusercontent.com/88630231/190917967-084a572f-aa8d-40ff-83c7-0d1a194acc02.png)
+
+![image](https://user-images.githubusercontent.com/88630231/190918006-8083da59-ec1a-4b38-85d1-b9cc49afe5bd.png)
+
+![image](https://user-images.githubusercontent.com/88630231/190918024-ec3d4786-20eb-4b23-8675-69fb443cd337.png)
+
+![image](https://user-images.githubusercontent.com/88630231/190918045-5c9fc20d-a3b1-4663-b216-b6fff27c4d87.png)
+
 
 
 
