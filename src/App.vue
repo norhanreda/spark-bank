@@ -79,6 +79,13 @@ export default {
     text-transform: uppercase;
     color: black;
   }
+  body{
+    min-height: 100vh;
+    height: 100vw;
+    overflow-x:hidden ;
+    
+   
+  }
   /*.links ul li ::after
   {
     content: '';
