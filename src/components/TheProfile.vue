@@ -1,4 +1,5 @@
 <template>
+  <teleport to="body">
   <p align="center" style="font-size: 20; padding: 10px">
     
   </p>
@@ -75,6 +76,7 @@
       </div>
     </ul>
   </div>
+  </teleport>
 </template>
 
 <script>

@@ -70,7 +70,18 @@ export default {
     margin:1rem 5rem;
     padding: 0.5rem;
     cursor: pointer;
-    background-color: pink;
+    background: linear-gradient(45deg,pink,rgb(139, 4, 249));
+    
+    border-radius: 0.5rem;
+  }
+
+  button:hover
+  {
+
+    margin:1rem 5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    background: pink;
     border-radius: 0.5rem;
   }
 

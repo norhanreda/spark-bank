@@ -1,4 +1,6 @@
 <template>
+  <div class="con">
+    <div class="card">
   <form @submit.prevent="submitData">
     <div class="form">
       <label> Name:</label>
@@ -20,6 +22,8 @@
 
     <button type="submit">Add</button>
   </form>
+  </div>
+  </div>
 </template>
 
 <script>
@@ -119,11 +123,13 @@ div {
 form
 {
   position: absolute;
-  left: 45%;
+  left: 22%;
+  top:10px;
 }
 
 
-button
+
+    button
     {
       cursor: pointer;
       background-color: rgb(194, 40, 173);
@@ -132,9 +138,10 @@ button
       border-radius: 5px;
       padding: 5px;
       margin:1px auto;
-     /* position:absolute;
-      left:47%;
-      top:30%;*/
+      position:absolute;
+      left:22%;
+      top:200px;
+      width:100px;
     }
     button:hover
     {
@@ -145,8 +152,27 @@ button
       border-radius: 5px;
       padding: 5px;
       margin:1px auto;
-      /*position:absolute;
-      left:47%;
-      top:30%;*/
+      position:absolute;
+      left:22%;
+      top:200x;
+      width:100px;
+      
+    }
+    .card {
+      position: relative;
+      width: 350px;
+      height: 350px;
+      /*background: #fff;*/
+      background: linear-gradient(45deg, pink, rgb(139, 4, 249));
+      border-radius: 20px;
+      box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+      transition: 0.5s;
+    }
+    .con
+    {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+     
     }
 </style>

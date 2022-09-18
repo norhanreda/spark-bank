@@ -6,6 +6,7 @@ import TheCustomers from './components/TheCustomers'
 import createCustomer from './components/createCustomer'
 import TheProfile from './components/TheProfile'
 import TheTransfer from './components/TheTransfer'
+import BaseDialog from './components/BaseDialog.vue';
 import App from './App.vue'
 const router=createRouter(
    {
@@ -51,4 +52,5 @@ const router=createRouter(
 );
 const app=createApp(App);
 app.use(router);
+app.component('base-dialog',BaseDialog);
 app.mount('#app');

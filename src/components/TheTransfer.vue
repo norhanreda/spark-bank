@@ -1,4 +1,14 @@
 <template>
+  <base-dialog 
+  title="money is not enough"
+  v-if="view"
+  >  
+ 
+  <p>your balance is no't enough to complete the transaction! </p>
+  <template  v-slot:actions> <button @click="ok">ok</button> </template>
+</base-dialog>
+  <div class="con">
+  <div class="card">
     <form @submit.prevent="updatData">
       <div class="form">
         <label> from:</label>
@@ -41,8 +51,10 @@
       </div>
    
       
-      <button type="submit">transfer</button>
+      <button type="submit" id="sub">transfer</button>
     </form>
+    </div>
+  </div>
     {{from}}
     {{to}}
     {{results[(results.findIndex((item) => item.id === to))]?.balance}}
@@ -51,7 +63,7 @@
   
   <script>
  
- 
+
   export default {
     data() {
       return {
@@ -64,13 +76,19 @@
         error:null,
         isLoading:false,
         results:[],
-        
+        view:false,
       
       };
     },
   
-    components: {},
+    components: {
+      
+    },
     methods: {
+      ok()
+      {
+    this.view=false;
+      },
     loadData()
     {
       this.isLoading=true;
@@ -102,8 +120,20 @@
       ;
     },
     async updatData(){
-      //delete old data
       
+      for(var j = 0; j< this.results.length; j++)
+      {
+        if(this.results[j].id === this.from)
+          {
+            if( this.results[j].balance<=this.value)
+            {
+              this.view=true;
+            return;
+            }
+          }
+         
+        }
+      //delete old data
       fetch('https://sparks-bank-cdcdf-default-rtdb.firebaseio.com/bank.json' ,
       {
       method:'DELETE',
@@ -245,6 +275,7 @@
       this.from="";
       this.to="";
       this.value="";
+      this.date="";
       
       
    
@@ -269,35 +300,73 @@
   form
   {
     position: absolute;
-    left: 45%;
+    left: 22%;
+  }
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, pink, rgb(139, 4, 249));
   }
   
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+  }
   
+
+  .card {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    /*background: #fff;*/
+    background: linear-gradient(45deg, pink, rgb(139, 4, 249));
+    border-radius: 20px;
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    transition: 0.5s;
+  }
+  .con
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+  }
+  input,select
+  {
+ width: 150px;
+  }
   button
-  {
-    cursor: pointer;
-    background-color: rgb(194, 40, 173);
-    border-color: black;
-    border-width: 1px;
-    border-radius: 5px;
-    padding: 5px;
-    margin:1px auto;
-    position:absolute;
-    left:35%;
-    top:250px;
-  }
-  button:hover
-  {
-    cursor: pointer;
-    background-color: pink;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 5px;
-    padding: 5px;
-    margin:1px auto;
-    position:absolute;
-    left:35%;
-    top:250px;
-  }
+    {
+      cursor: pointer;
+      background-color: rgb(194, 40, 173);
+      border-color: black;
+      border-width: 1px;
+      border-radius: 5px;
+      padding: 5px;
+      margin:1px auto;
+      color: white;
+     
+    }
+    button:hover
+    {
+      cursor: pointer;
+      background-color: pink;
+      border-color: black;
+      border-width: 1px;
+      border-radius: 5px;
+      padding: 5px;
+      margin:1px auto;
+      color: black;
+      
+    }
+    #sub
+    {
+      position: absolute;
+      left:35%;
+      top:100%;
+    }
   </style>
   
