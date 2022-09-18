@@ -55,10 +55,10 @@
     </form>
     </div>
   </div>
-    {{from}}
+    <!-- {{from}}
     {{to}}
     {{results[(results.findIndex((item) => item.id === to))]?.balance}}
-    {{date}}
+    {{date}} -->
   </template>
   
   <script>
@@ -119,7 +119,7 @@
       )
       ;
     },
-    async updatData(){
+     updatData(){
       
       for(var j = 0; j< this.results.length; j++)
       {

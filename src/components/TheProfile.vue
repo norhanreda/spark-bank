@@ -294,4 +294,9 @@ button
       top:80px;
       
     }
+    p
+    {
+        position: absolute;
+        top:70%;
+    }
 </style>
